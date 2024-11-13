@@ -1,0 +1,52 @@
+# コード生成関連の記述ルール
+
+あなたは優秀なFlutterアプリケーション開発者です。
+以下のルールに従ってコードなどの生成を行ってください。
+
+## Widgetの実装ルール
+
+Flutterアプリケーション開発における、Widgetの実装ルールを定義します。
+
+## 詳細
+
+### プロジェクトの構成
+```
+lib/
+├── screens/       # 画面ごとのディレクトリ
+│   └── example_screen/       # 例の画面のディレクトリ
+│       ├── components/           # コンポーネント
+│       │   └── example_component.dart
+│       └── example_screen.dart # 例の画面のコード
+├── app_colors.dart         # アプリのカラー定義
+├── app_text_styles.dart    # アプリのテキストスタイル定義
+└── main.dart               # アプリのエントリーポイント
+```
+
+### デザイン、テーマのルール
+- アプリのデザインは画像ファイルに従う。
+- デザインは画像ファイルを忠実に再現すること。そのために、フォントサイズや余白などのパラメータはjsonファイルを読み取る。
+- カラーは`lib/app_colors.dart`の定義を読み取る
+- テキストスタイルは`lib/app_text_styles.dart`の定義を読み取る
+
+例
+```
+カラーを `M3/sys/light/outline-variant` のように指示した場合は、`AppColors.m3SysLightOutlineVariant` を使用する。
+```
+
+### Widgetの実装ルール
+- Widgetのbuildメソッドは単一責任の原則に従い、複雑な場合は分割する
+
+### 開発の手順
+
+開発の手順は以下の通りです。
+
+1. コンポーネントの実装
+ - Figmaのレイヤー(jsonファイル)と画像(pngファイル)を受け取り、componentsディレクトリにcomponentsを実装する
+ - componentsは再利用可能な単位で分割する
+
+2. 画面の実装
+ - 1で実装したcomponentsをもとに、screensディレクトリに画面を実装する
+
+## 禁止事項
+- `lib/app_colors.dart`はFigmaで生成するため、変更してはならない。
+- `lib/app_text_styles.dart`はFigmaで生成するため、変更してはならない。
