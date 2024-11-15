@@ -130,17 +130,17 @@ final _todaysDreams = [
   (
     '着ぐるみを着て競争する夢',
     '巨大なウサギの着ぐるみを着せられ、見知らぬ動物たちと広大な迷路で競争することに。',
-    Asset('assets/media.png'),
+    Asset('media.png'),
   ),
   (
     '空を飛ぶ夢',
     'なぜかみんな普通に空を飛べる世界で、高度を調整できず、雲の中をぐるぐる回り続ける。',
-    Asset('assets/media2.png'),
+    Asset('media2.png'),
   ),
   (
     '試験を受ける夢',
     '試験会場に入ると、見知らぬ文字で埋め尽くされたテスト用紙が渡される。',
-    Asset('assets/media3.png'),
+    Asset('media3.png'),
   ),
 ];
 
@@ -149,16 +149,16 @@ final _favoriteDreams = [
   (
     '南国で寝る夢',
     '温かな太陽と心地よいそよ風が、まるで毛布のように包み込んでくれる。',
-    Asset('assets/media4.png'),
+    Asset('media4.png'),
   ),
   (
     'お金がいっぱいの夢',
     '手を伸ばすと、紙幣がさらさらと指の間をすり抜ける感触がたまらない。',
-    Asset('assets/media5.png'),
+    Asset('media5.png'),
   ),
   (
     '子どもの頃の夢',
     '子どもの頃のままの公園で、大好きな友達と無邪気に遊び回る。',
-    Asset('assets/media6.png'),
+    Asset('media6.png'),
   ),
 ];
