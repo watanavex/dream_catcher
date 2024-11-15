@@ -15,8 +15,7 @@ Widget buildHorizontalCardUseCase(BuildContext context) {
   return HorizontalCard(
     title: '空を飛ぶ夢',
     description: 'なぜかみんな普通に空を飛べるようになっていた',
-    imageSource:
-        Network('https://docs.flutter.dev/assets/images/dash/Dash.png'),
+    imageSource: Asset('media.png'),
     onTap: () {},
   );
 }

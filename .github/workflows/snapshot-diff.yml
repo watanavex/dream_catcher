@@ -23,7 +23,9 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: base-snapshot
-          path: test/goldens/
+          path: |
+            test/screens/goldens/
+            test/screens/components/goldens/
 
   head-snapshot:
     runs-on: ubuntu-latest
@@ -35,7 +37,7 @@ jobs:
       - uses: actions/download-artifact@v4
         with:
           name: base-snapshot
-          path: test/goldens/
+          path: test/screens/
       - name: Setup Flutter
         uses: ./.github/actions/setup-flutter
       - name: Run golden tests
@@ -47,7 +49,9 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: diff-snapshot
-          path: test/failures/
+          path: |
+            test/screens/failures/
+            test/screens/components/failures/
       - name: Comment on Figma
         if: ${{ steps.golden-tests.outcome == 'failure' }}
         run: |
@@ -60,4 +64,5 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: head-snapshot
-          path: test/goldens/
+            test/screens/goldens/
+            test/screens/components/goldens/

@@ -88,7 +88,10 @@ class HorizontalCard extends StatelessWidget {
                   bottomRight: Radius.circular(12),
                 ),
                 child: switch (imageSource) {
-                  Asset(path: final path) => Image.asset(path),
+                  Asset(path: final path) => Image.asset(
+                      path,
+                      package: 'assets',
+                    ),
                   Network(url: final url) => Image.network(url),
                 },
               ),

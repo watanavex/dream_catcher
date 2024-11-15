@@ -20,7 +20,7 @@ void main() async {
           child: HorizontalCard(
             title: '着ぐるみを着て競争する夢',
             description: '巨大なウサギの着ぐるみを着せられ、見知らぬ動物たちと広大な迷路で競争することに。',
-            imageSource: Asset('assets/media.png'),
+            imageSource: Asset('media.png'),
             onTap: () {
               debugPrint('Tapped today\'s dream.');
             },
