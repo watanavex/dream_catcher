@@ -5,8 +5,8 @@ import 'package:dream_catcher/screens/dream_list/components/horizontal_card.dart
 
 void main() async {
   await goldenTest(
-    'DreamList',
-    fileName: 'dream_list',
+    'HorizontalCard',
+    fileName: 'horizontal_card',
     builder: () => GoldenTestGroup(
       scenarioConstraints: const BoxConstraints(
         minWidth: 380,
