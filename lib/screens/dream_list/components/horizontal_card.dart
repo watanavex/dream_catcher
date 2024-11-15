@@ -1,3 +1,4 @@
+import 'package:dream_catcher/image_source.dart';
 import 'package:flutter/material.dart';
 import 'package:dream_catcher/app_colors.dart';
 import 'package:dream_catcher/app_text_styles.dart';
@@ -5,17 +6,15 @@ import 'package:dream_catcher/app_text_styles.dart';
 class HorizontalCard extends StatelessWidget {
   const HorizontalCard({
     super.key,
-    required this.avatarUrl,
     required this.title,
     required this.description,
-    required this.imageUrl,
+    required this.imageSource,
     required this.onTap,
   });
 
-  final String avatarUrl;
   final String title;
   final String description;
-  final String imageUrl;
+  final ImageSource imageSource;
   final VoidCallback onTap;
 
   @override
@@ -88,12 +87,10 @@ class HorizontalCard extends StatelessWidget {
                   topRight: Radius.circular(12),
                   bottomRight: Radius.circular(12),
                 ),
-                child: Image.network(
-                  imageUrl,
-                  width: 80,
-                  height: 80,
-                  fit: BoxFit.cover,
-                ),
+                child: switch (imageSource) {
+                  Asset(path: final path) => Image.asset(path),
+                  Network(url: final url) => Image.network(url),
+                },
               ),
             ],
           ),

@@ -1,3 +1,4 @@
+import 'package:dream_catcher/image_source.dart';
 import 'package:flutter/material.dart';
 import 'package:dream_catcher/app_colors.dart';
 import 'package:dream_catcher/app_text_styles.dart';
@@ -55,17 +56,14 @@ class DreamList extends StatelessWidget {
           ListView.builder(
             shrinkWrap: true,
             physics: const NeverScrollableScrollPhysics(),
-            itemCount: 3,
+            itemCount: _todaysDreams.length,
             itemBuilder: (context, index) {
               return Padding(
                 padding: const EdgeInsets.only(bottom: 8),
                 child: HorizontalCard(
-                  avatarUrl:
-                      'https://pbs.twimg.com/profile_images/1615218542852608000/u0mxo1Ln_400x400.jpg',
-                  title: '着ぐるみを着て競争する夢',
-                  description: '巨大なウサギの着ぐるみを着せられて...',
-                  imageUrl:
-                      'https://docs.flutter.dev/assets/images/dash/Dash.png',
+                  title: _todaysDreams[index].$1,
+                  description: _todaysDreams[index].$2,
+                  imageSource: _todaysDreams[index].$3,
                   onTap: () {
                     debugPrint('Tapped today\'s dream ${index + 1}');
                   },
@@ -87,17 +85,14 @@ class DreamList extends StatelessWidget {
           ListView.builder(
             shrinkWrap: true,
             physics: const NeverScrollableScrollPhysics(),
-            itemCount: 3,
+            itemCount: _favoriteDreams.length,
             itemBuilder: (context, index) {
               return Padding(
                 padding: const EdgeInsets.only(bottom: 8),
                 child: HorizontalCard(
-                  avatarUrl:
-                      'https://pbs.twimg.com/profile_images/1615218542852608000/u0mxo1Ln_400x400.jpg',
-                  title: '南国で寝る夢',
-                  description: '温かな太陽と心地よいそよ風が...',
-                  imageUrl:
-                      'https://docs.flutter.dev/assets/images/dash/Dash.png',
+                  title: _favoriteDreams[index].$1,
+                  description: _favoriteDreams[index].$2,
+                  imageSource: _favoriteDreams[index].$3,
                   onTap: () {
                     debugPrint('Tapped favorite dream ${index + 1}');
                   },
@@ -129,3 +124,41 @@ class DreamList extends StatelessWidget {
     );
   }
 }
+
+// 今日の夢のリスト
+final _todaysDreams = [
+  (
+    '着ぐるみを着て競争する夢',
+    '巨大なウサギの着ぐるみを着せられ、見知らぬ動物たちと広大な迷路で競争することに。',
+    Asset('assets/media.png'),
+  ),
+  (
+    '空を飛ぶ夢',
+    'なぜかみんな普通に空を飛べる世界で、高度を調整できず、雲の中をぐるぐる回り続ける。',
+    Asset('assets/media2.png'),
+  ),
+  (
+    '試験を受ける夢',
+    '試験会場に入ると、見知らぬ文字で埋め尽くされたテスト用紙が渡される。',
+    Asset('assets/media3.png'),
+  ),
+];
+
+// もう一度見たい夢のリスト
+final _favoriteDreams = [
+  (
+    '南国で寝る夢',
+    '温かな太陽と心地よいそよ風が、まるで毛布のように包み込んでくれる。',
+    Asset('assets/media4.png'),
+  ),
+  (
+    'お金がいっぱいの夢',
+    '手を伸ばすと、紙幣がさらさらと指の間をすり抜ける感触がたまらない。',
+    Asset('assets/media5.png'),
+  ),
+  (
+    '子どもの頃の夢',
+    '子どもの頃のままの公園で、大好きな友達と無邪気に遊び回る。',
+    Asset('assets/media6.png'),
+  ),
+];
