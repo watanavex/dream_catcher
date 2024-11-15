@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:dream_catcher/screens/dream_list/dream_list.dart';
 
 void main() {
   runApp(const MyApp());
@@ -9,23 +10,10 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       title: 'Dream Catcher',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
-      home: const Temp(),
+      debugShowCheckedModeBanner: false,
+      home: DreamList(),
     );
-  }
-}
-
-// 暫定的なWidget
-class Temp extends StatelessWidget {
-  const Temp({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const Text('Temp');
   }
 }
