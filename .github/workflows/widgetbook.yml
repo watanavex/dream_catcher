@@ -1,0 +1,42 @@
+name: Widgetbook
+
+on:
+  pull_request:
+    types: [opened, synchronize]
+  push:
+    branches: [main]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Select specific commit for checkout
+        id: checkout_ref
+        run: |
+          if [ "${{ github.event_name }}" == "pull_request" ]; then
+            echo "CHECKOUT_REF=${{ github.head_ref }}" >> $GITHUB_OUTPUT
+            echo "COMMIT_SHA=${{ github.event.pull_request.head.sha }}" >> $GITHUB_OUTPUT
+          elif [ "${{ github.event_name }}" == "push" ]; then
+            echo "CHECKOUT_REF=${{ github.ref_name }}" >> $GITHUB_OUTPUT
+            echo "COMMIT_SHA=${{ github.sha }}" >> $GITHUB_OUTPUT
+          fi
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ steps.checkout_ref.outputs.CHECKOUT_REF }}
+      - name: Setup Flutter
+        uses: ./.github/actions/setup-flutter
+      - name: Build widgetbook
+        working-directory: widgetbook
+        run: |
+          flutter pub get
+          flutter pub run build_runner build --delete-conflicting-outputs
+          flutter build web -t lib/main.dart
+      - name: Install Widgetbook CLI
+        run: dart pub global activate widgetbook_cli
+      - name: Push Widgetbook Build
+        working-directory: widgetbook
+        run: widgetbook cloud build push --commit ${{ steps.checkout_ref.outputs.COMMIT_SHA }} --api-key ${{ secrets.WIDGETBOOK_API_KEY }}
