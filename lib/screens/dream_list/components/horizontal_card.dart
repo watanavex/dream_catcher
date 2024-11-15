@@ -23,12 +23,12 @@ class HorizontalCard extends StatelessWidget {
       color: Colors.transparent,
       child: InkWell(
         onTap: onTap,
-        borderRadius: BorderRadius.circular(12),
+        borderRadius: BorderRadius.circular(6),
         child: Ink(
           height: 80,
           decoration: BoxDecoration(
             color: AppColors.m3SysLightBackground,
-            borderRadius: BorderRadius.circular(12),
+            borderRadius: BorderRadius.circular(6),
             border: Border.all(
               color: AppColors.m3SysLightOutlineVariant,
               width: 1,
