@@ -1,3 +1,4 @@
+import 'package:dream_catcher/image_source.dart';
 import 'package:flutter/material.dart';
 import 'package:widgetbook_annotation/widgetbook_annotation.dart' as widgetbook;
 
@@ -14,9 +15,8 @@ Widget buildHorizontalCardUseCase(BuildContext context) {
   return HorizontalCard(
     title: '空を飛ぶ夢',
     description: 'なぜかみんな普通に空を飛べるようになっていた',
-    imageUrl: 'https://docs.flutter.dev/assets/images/dash/Dash.png',
-    avatarUrl:
-        'https://pbs.twimg.com/profile_images/1615218542852608000/u0mxo1Ln_400x400.jpg',
+    imageSource:
+        Network('https://docs.flutter.dev/assets/images/dash/Dash.png'),
     onTap: () {},
   );
 }
