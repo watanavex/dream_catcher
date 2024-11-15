@@ -15,13 +15,13 @@ class DreamList extends StatelessWidget {
         backgroundColor: AppColors.m3SysLightSurface,
         elevation: 0,
         leading: IconButton(
-          icon: const Icon(Icons.notifications_outlined),
+          icon: const Icon(Icons.account_circle_sharp),
           onPressed: () {},
           color: AppColors.m3SysLightOnSurface,
         ),
         actions: [
           IconButton(
-            icon: const Icon(Icons.account_circle_sharp),
+            icon: const Icon(Icons.notifications_outlined),
             onPressed: () {},
             color: AppColors.m3SysLightOnSurface,
           ),
