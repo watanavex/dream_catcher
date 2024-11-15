@@ -82,16 +82,16 @@ class HorizontalCard extends StatelessWidget {
               ),
 
               // 右側の画像
-              ClipRRect(
-                borderRadius: const BorderRadius.only(
-                  topRight: Radius.circular(12),
-                  bottomRight: Radius.circular(12),
-                ),
-                child: switch (imageSource) {
-                  Asset(path: final path) => Image.asset(path),
-                  Network(url: final url) => Image.network(url),
-                },
-              ),
+              // ClipRRect(
+              //   borderRadius: const BorderRadius.only(
+              //     topRight: Radius.circular(12),
+              //     bottomRight: Radius.circular(12),
+              //   ),
+              //   child: switch (imageSource) {
+              //     Asset(path: final path) => Image.asset(path),
+              //     Network(url: final url) => Image.network(url),
+              //   },
+              // ),
             ],
           ),
         ),
