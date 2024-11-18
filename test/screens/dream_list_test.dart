@@ -8,6 +8,9 @@ void main() {
   goldenTest(
     'DreamList',
     fileName: 'dream_list',
+    pumpBeforeTest: (tester) async {
+      await precacheImages(tester);
+    },
     builder: () => GoldenTestGroup(
       scenarioConstraints: const BoxConstraints(
         minWidth: 440,
