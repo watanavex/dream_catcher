@@ -7,6 +7,9 @@ void main() async {
   await goldenTest(
     'HorizontalCard',
     fileName: 'horizontal_card',
+    pumpBeforeTest: (tester) async {
+      await precacheImages(tester);
+    },
     builder: () => GoldenTestGroup(
       scenarioConstraints: const BoxConstraints(
         minWidth: 380,
