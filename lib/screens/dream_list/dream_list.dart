@@ -21,7 +21,7 @@ class DreamList extends StatelessWidget {
         ),
         actions: [
           IconButton(
-            icon: const Icon(Icons.notifications_outlined),
+            icon: const Icon(Icons.notifications_sharp),
             onPressed: () {},
             color: AppColors.m3SysLightOnSurface,
           ),
