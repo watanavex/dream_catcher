@@ -62,7 +62,7 @@ class HorizontalCard extends StatelessWidget {
                       Text(
                         title,
                         style: AppTextStyles.m3TitleMedium.copyWith(
-                          color: AppColors.m3SysLightOnSurface,
+                          color: AppColors.m3Black,
                         ),
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
